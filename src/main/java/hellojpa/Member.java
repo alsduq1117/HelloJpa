@@ -6,30 +6,39 @@ import java.time.LocalDateTime;
 import java.util.Date;
 @Entity
 public class Member {
-    @Id
+
+    @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    @Column(name = "name")
-    private String username;
+    @Column(name = "USERNAME")
+    private String name;
 
-    private Integer age;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
+    @Column(name = "TEAM_ID")
+    private Long teamId;
 
-    @Temporal(TemporalType.TIMESTAMP)  //DATE,TIME,TIMESTAMP
-    private Date createdDate;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    @Lob            //varchar 를 넘어서는 큰 컨텐츠를 칼럼매핑할때 사용
-    private String description;
-    //Getter, Setter…
-
-    public Member(){
-        
+    public Long getId() {
+        return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
+    }
 }
