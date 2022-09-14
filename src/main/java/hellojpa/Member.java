@@ -23,6 +23,7 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+
     public Long getId() {
         return id;
     }
@@ -42,6 +43,7 @@ public class Member {
     public Team getTeam() {
         return team;
     }
+
 
     public void setTeam(Team team) {
         this.team = team;
