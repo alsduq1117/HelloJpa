@@ -19,18 +19,20 @@ public class JpaMain {
 
         try {
 
-          Member member = new Member();
-          member.setName("user1");
-          member.setCreatedBy("kim");
-          member.setCreatedDate(LocalDateTime.now());
+            Member member1= new Member();
+            member1.setName("member1");
+            em.persist(member1);
 
-           em.persist(member);
-           
-           em.flush();
-           em.clear();
+            em.flush();
+            em.clear();
 
+            Member refMember = em.getReference(Member.class, member1.getId());
+            System.out.println("refMember.getClass() = " + refMember.getClass());
 
+            Member findMember = em.find(Member.class, member1.getId());
+            System.out.println("findMember.getClass() = " + findMember.getClass());
 
+            System.out.println("refMember == findMember: " + (refMember == findMember));
 
             tx.commit();
         }catch (Exception e) {
