@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.concurrent.locks.Lock;
 
 @Entity
-public class Member {
+public class Member extends BaseEntitiy {
 
     @Id @GeneratedValue
     @Column(name = "MEMBER_ID")
